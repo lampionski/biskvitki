@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2> Dobre doshli</h2>
+
+@if (ViewBag.UserName != null)
+{
+    <p>Zdraveite, @ViewBag.UserName!</p>
+}
+else
+{
+    <form asp-action="SetUserName" method="post">
+        <label for="userName">Vuvedete imeto si:</label>
+        <input type="text" id="userName" name="userName" required/>
+        <button type="submit">Zapazi</button>
+    </form>
+}
+
+<h2>Izberete predpochitanie na tema:</h2>
+
+<form asp-action="SetCoockie" method="post">
+    <button type="submit" name="preference" value="DarkMode">Tumna tema</button>
+    <button type="submit" name="preference" value="LightMode">Svetla tema tema</button>
+</form>
+
+<p>Vashata tekushta tema: @ViewBag.UserPreference</p>
+
+
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
